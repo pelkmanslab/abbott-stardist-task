@@ -25,20 +25,22 @@ authors = [
 ]
 
 # Required Python version and dependencies
-requires-python = ">=3.11,<3.14"
+requires-python = "<=3.11"
 dependencies = [
     "ngio>=0.4.1,<0.5",
-    "scikit-image",
     "fractal-task-tools>=0.0.14",
+    "numpy<2.0",
+    "scikit-image",
+    "csbdeep", 
+    "optree",
+    "stardist", 
+    "tensorflow",
 ]
 
 # Optional dependencies (e.g. for `pip install -e ".[dev]"`, see
 # https://peps.python.org/pep-0621/#dependencies-optional-dependencies)
 [project.optional-dependencies]
 dev = [
-    "notebook",
-    "napari",
-    "pyqt5",
     "devtools",
     "hatch",
     "pytest",
@@ -51,7 +53,7 @@ dev = [
 # https://docs.astral.sh/ruff
 [tool.ruff]
 line-length = 88
-target-version = "py311"
+target-version = "py39"
 src = ["src"]
 
 # https://docs.astral.sh/ruff/rules
@@ -89,7 +91,11 @@ skip-magic-trailing-comma = false # default is false
 
 [tool.pixi.workspace]
 channels = ["conda-forge"]
-platforms = ["osx-arm64", "linux-64"]
+platforms = ["linux-64"]
+
+[tool.pixi.dependencies]
+pyarrow = "*"
+cryptography = "*"
 
 [tool.pixi.pypi-dependencies]
 abbott-stardist-task = { path = ".", editable = true }
