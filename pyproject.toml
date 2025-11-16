@@ -34,13 +34,14 @@ dependencies = [
     "csbdeep", 
     "optree",
     "stardist", 
-    "tensorflow",
+    "tensorflow ; platform_system == 'Linux'",
 ]
 
 # Optional dependencies (e.g. for `pip install -e ".[dev]"`, see
 # https://peps.python.org/pep-0621/#dependencies-optional-dependencies)
 [project.optional-dependencies]
 dev = [
+    "notebook",
     "devtools",
     "hatch",
     "pytest",

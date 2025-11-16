@@ -1,10 +1,9 @@
 ### Purpose
-- Description and documentation of the Task functionality
-- Bullet points that cover main features of the tasks.
-- Can use **full** *markdown* formatting (including embedding images).
+- **Segments images using Stardist models**.
+- Supports both **built-in Stardist models** (shipped with Stardist) and **user-trained models**.
+- Accepts single channel image input for segmentation.
+- Can process **arbitrary regions of interest (ROIs)**, including whole images, fields of view (FOVs), or masked outputs from prior segmentations, based on corresponding ROI tables.
+- Provides access to all advanced Stardist parameters.
 
 ### Outputs
-- Optional section on what kind of outputs the task generates. For the thresholding_task: Generates a new label image named `label_name`.
-
-### Limitations
-- List known limitations of the task (e.g. only works for certain data types).
+- Generates a new label image named `<channel_identifier>_segmented` if no label name is provided.
