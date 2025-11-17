@@ -167,15 +167,10 @@ def stardist_segmentation_task(
         iterator_configuration = IteratorConfiguration()
 
     # Determine if we are doing 3D segmentation
-    # If so we need to set the anisotropy factor
     if ome_zarr.is_3d:
         axes_order = "czyx"
-        # pix_size_z, pix_size_xy = label.pixel_size.z, label.pixel_size.yx
-        # assert pix_size_xy[0] == pix_size_xy[1], "Non-isotropic pixel size in XY"
-        # anisotropy = pix_size_z / pix_size_xy[0]
     else:
         axes_order = "cyx"
-        # anisotropy = None
 
     # Set up the appropriate iterator based on the configuration
     label = ome_zarr.get_label(name=label_name, path=level_path)
@@ -221,7 +216,7 @@ def stardist_segmentation_task(
         # Be aware that this is not an alternative to masking
         # but only an additional restriction
         table = ome_zarr.get_generic_roi_table(name=iterator_configuration.roi_table)
-        logging.info(f"ROI table retrieved: {table=}")
+        logging.info(f"ROI table rßetrieved: {table=}")
         iterator = iterator.product(table)
         logging.info(f"Iterator updated with ROI table: {iterator=}")
 
