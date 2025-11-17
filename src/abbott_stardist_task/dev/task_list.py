@@ -28,11 +28,9 @@ TASK_LIST = [
     ParallelTask(
         name="Stardist Segmentation",
         executable="stardist_segmentation_task.py",
-        # Modify the meta according to your task requirements
-        # If the task requires a GPU, add "needs_gpu": True
-        meta={"cpus_per_task": 1, "mem": 4000},
+        meta={"cpus_per_task": 4, "mem": 16000, "needs_gpu": True},
         category="Segmentation",
-        tags=["Instance Segmentation", "Classical segmentation"],
+        tags=["Instance Segmentation", "Classical segmentation", "2D", "3D"],
         docs_info="file:docs_info/stardist_segmentation_task.md",
     ),
 ]
