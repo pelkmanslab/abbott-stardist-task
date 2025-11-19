@@ -34,7 +34,7 @@ dependencies = [
     "csbdeep", 
     "optree",
     "stardist", 
-    "tensorflow ; platform_system == 'Linux'",
+    "tensorflow",
 ]
 
 # Optional dependencies (e.g. for `pip install -e ".[dev]"`, see
