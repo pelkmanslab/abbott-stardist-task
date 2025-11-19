@@ -25,7 +25,7 @@ authors = [
 ]
 
 # Required Python version and dependencies
-requires-python = "<=3.11"
+requires-python = "==3.11"
 dependencies = [
     "ngio>=0.4.1,<0.5",
     "fractal-task-tools>=0.0.14",
