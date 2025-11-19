@@ -11,15 +11,15 @@ on:
   release:
     types: [published]
 
-
 jobs:
   tests:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
         python-version: ["3.11", "3.12", "3.13"]
+
     name: "Core, Python ${{ matrix.python-version }}, ${{ matrix.os }}"
-    runs-on: ${{  matrix.os {{ }}
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 10
 
     steps:
@@ -28,10 +28,10 @@ jobs:
           fetch-depth: 1
           persist-credentials: false
 
-      - name: Set up Python ${{  matrix.python-version {{ }}
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
-          python-version: ${{  matrix.python-version {{ }}
+          python-version: ${{ matrix.python-version }}
           cache: "pip"
 
       - name: Install package
@@ -50,10 +50,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      # IMPORTANT: this permission is mandatory for trusted publishing on PyPi
-      # see https://docs.pypi.org/trusted-publishers/
       id-token: write
-      # This permission allows writing releases
       contents: write
 
     steps:
@@ -73,7 +70,6 @@ jobs:
           python -m build
 
       - name: 🚢 Publish to PyPI
-        # TODO remove the "if: false" line when the package is ready for pypi release
         if: false
         uses: pypa/gh-action-pypi-publish@release/v1
 
