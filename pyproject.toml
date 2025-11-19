@@ -33,7 +33,8 @@ dependencies = [
     "scikit-image",
     "csbdeep", 
     "optree",
-    "stardist", 
+    "stardist",
+    "setuptools<81",
     "tensorflow",
 ]
 
