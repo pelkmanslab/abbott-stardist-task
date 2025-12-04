@@ -87,14 +87,10 @@ def test_stardist_segmentation_task(
     channel = StardistChannel(mode="label", identifiers=["DAPI_0"])
 
     if is_github_or_fast:
-        # Mock Cellpose model in GitHub Actions to avoid downloading the model
         import stardist.models
 
-        monkeypatch.setattr(
-            stardist.models,
-            "StardistModel",
-            MockStardistModel,
-        )
+        monkeypatch.setattr(stardist.models, "StarDist2D", MockStardistModel)
+        monkeypatch.setattr(stardist.models, "StarDist3D", MockStardistModel)
 
     if ome_zarr.is_2d:
         model_type = StardistModels.VERSATILE_FLUO_2D
@@ -154,14 +150,10 @@ def test_stardist_segmentation_task_masked(
     )
 
     if is_github_or_fast:
-        # Mock Cellpose model in GitHub Actions to avoid downloading the model
         import stardist.models
 
-        monkeypatch.setattr(
-            stardist.models,
-            "StardistModel",
-            MockStardistModel,
-        )
+        monkeypatch.setattr(stardist.models, "StarDist2D", MockStardistModel)
+        monkeypatch.setattr(stardist.models, "StarDist3D", MockStardistModel)
 
     if ome_zarr.is_2d:
         model_type = StardistModels.VERSATILE_FLUO_2D
