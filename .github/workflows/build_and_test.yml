@@ -18,8 +18,8 @@ jobs:
         os: [ubuntu-latest]
         python-version: ["3.11"]
 
-    name: "Core, Python ${{ matrix.python-version }}, ${{ matrix.os }}"
-    runs-on: ${{ matrix.os }}
+    name: "Core, Python ${{  matrix.python-version }}, ${{  matrix.os }}"
+    runs-on: ${{  matrix.os }}
     timeout-minutes: 10
 
     steps:
